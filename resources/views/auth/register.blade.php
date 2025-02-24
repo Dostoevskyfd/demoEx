@@ -8,6 +8,30 @@
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
+        <!-- Name -->
+        <div>
+            <x-input-label for="middlename" :value="__('middlename')" />
+            <x-text-input id="middlename" class="block mt-1 w-full" type="text" name="middlename" :value="old('middlename')" required autofocus autocomplete="middlename" />
+            <x-input-error :messages="$errors->get('middlename')" class="mt-2" />
+        </div>
+        <!-- Name -->
+        <div>
+            <x-input-label for="lastname" :value="__('lastname')" />
+            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+        </div>
+        <!-- school -->
+        <div>
+            <x-input-label for="school" :value="__('school')" />
+            <x-text-input id="school" class="block mt-1 w-full" type="text" name="school" :value="old('school')" required autofocus autocomplete="school" />
+            <x-input-error :messages="$errors->get('school')" class="mt-2" />
+        </div>
+        <!-- class -->
+        <div>
+            <x-input-label for="class" :value="__('class')" />
+            <x-text-input id="class" class="block mt-1 w-full" type="text" name="class" :value="old('class')" required autofocus autocomplete="class" />
+            <x-input-error :messages="$errors->get('class')" class="mt-2" />
+        </div>
 
         <!-- Email Address -->
         <div class="mt-4">
@@ -41,11 +65,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Войти') }}
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Register') }}
+                {{ __('Зарегистрироваться') }}
             </x-primary-button>
         </div>
     </form>
