@@ -1,4 +1,4 @@
-name: laravel
+name: demoEx
 
 services:
   laravel:
@@ -13,7 +13,7 @@ services:
       DB_PORT: ${DB_PORT:-3306}
       DB_DATABASE: ${DB_DATABASE:-laravel_db}
       DB_USERNAME: ${DB_USERNAME:-root}
-      DB_PASSWORD: ${DB_PASSWORD:-123123}
+      DB_PASSWORD: ${DB_PASSWORD:-050703milanacherepova*}
     depends_on:
       db:
         condition: service_healthy
@@ -22,13 +22,13 @@ services:
       - "${DB_PORT:-3306}:${DB_PORT:-3306}"
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-123123}"
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-050703milanacherepova*}"
       MYSQL_HOST: "%"
       MYSQL_DATABASE: "${DB_DATABASE:-laravel_db}"
       MYSQL_TCP_PORT: "${DB_PORT:-3306}"
     healthcheck:
       test:
-        [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${ROOT_PASSWORD:-123123}",
+        [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${ROOT_PASSWORD:-050703milanacherepova*}",
         ]
       timeout: 20s
       retries: 5

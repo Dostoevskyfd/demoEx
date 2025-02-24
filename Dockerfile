@@ -10,7 +10,7 @@ COPY . /app
 
 RUN npm run build
 
-FROM bitnami/laravel AS base
+FROM bitnami/demoEx AS base
 
 WORKDIR /app
 
