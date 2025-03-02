@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('path_img');
+            $table->integer('score')->nullable();
             $table->foreignId('category_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('scores_id')->constrained()->nullable();
+            //$table->foreignId('scores_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

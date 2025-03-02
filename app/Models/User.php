@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Work;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -51,9 +51,9 @@ public function isAdmin(){
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function work(): HasMany
+    public function work(): HasOne
     {
-        return $this->hasMany(Work::class, 'foreign_key');
+        return $this->hasOne(Work::class, 'foreign_key');
     }
     public function fullName(){
         return $this->name. ' '.$this->middlename.' '.$this->lastname;

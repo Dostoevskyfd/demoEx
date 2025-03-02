@@ -5,6 +5,7 @@
         </h2>
 </x-slot>
 <div class="py-12">
+<div class="conteiner">
 <div class="md:container md:mx-auto  justify-between  bg-white min-w-16">
 <div class="max-w-7xl sm:px-6 lg:px-8 pt-6 pb-6">
     
@@ -49,4 +50,35 @@
     </div>   
     </div>
 </div>
+
+
+<div class=" pt-12 sm:px-6 lg:px-8 block bg-slate-100">
+    <h2 class="text-xl text-black pr-2">Ваша открытка:</h2>
+        <div class="justify-center flex  w-99 h-80 bg-white overflow-hidden shadow-sm sm:rounded-lg pt-10 ">
+        @foreach ($works as $work)
+
+   
+<div class="pr-7 flex">
+<p class="text-xl text-black pr-2">Название открытки:  </p>
+<p class="text-xl text-black">{{$work->title}}</p>
+</div>
+<div class="pr-7 block">
+<p class="text-xl text-black pr-2">Оценка: </p>
+@isset($work->path_img)
+
+    <img src="{{ Storage::url($work->path_img)}}" class="contact-block_img w-52 h-52 pt-2" alt="">
+    @endisset
+</div>
+<div class="pr-7 flex">
+<p class="text-xl text-black pr-2">Категория открытки:  </p>
+<p class="text-xl text-black">{{$work->categorie->text}}</p>
+</div>
+<div class="pr-7 flex">
+<p class="text-xl text-black pr-2">Оценка: </p>
+<p class="text-xl text-black">{{$work->score}}</p>
+</div>
+@endforeach
+        </div>
+    </div>
+    </div>
 </x-app-layout>

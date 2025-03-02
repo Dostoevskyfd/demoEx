@@ -30,23 +30,24 @@
 
 <div class="flex">
 <p class="text-xl text-black pr-2">Оценка: </p>
-@if ($work->scores_id==1)
-<form id="form-update-{{$work->id}}" action="{{route('update')}}" method="POST">
-            @csrf
-            @method('PATCH')
-            <input type="hidden" name="id" value="{{$work->id}}">
-            <select name="scores_id" onchange="document.getElementById('form-update-{{$work->id}}').submit()">
-        @foreach ($scores as $score)
-        <option value="{{$score->id}}" class="text-xl text-black">{{$score->number}}</option>
-        @endforeach
-        </select>
-</form>
- @else
-<p class="text-xl text-black" > 
-{{$work->score->number}}
-</p>
-@endif
-    </div>
+<!-- Если оценка не выставлена, показываем форму -->
+@if ($work->score === null)
+            <form action="{{ route('update', $work) }}" method="POST">
+                @csrf
+                @method('PATCH')
+                <label for="score" class="block text-sm font-medium text-gray-700">Оценка:</label>
+                <input type="number" name="score" min="0" max="100" required
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                <button type="submit"
+                    class="mt-2 inline-flex items-center px-4 py-2 bg-blue-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150">
+                    Оценить
+                </button>
+            </form>
+        @else
+            <!-- Если оценка выставлена, показываем текст -->
+            <p class="text-xl text-black">Оценка: {{ $work->score }}</p>
+        @endif
+</div>
     @endforeach
 </div>
 </div>
