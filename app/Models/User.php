@@ -51,9 +51,9 @@ public function isAdmin(){
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function work(): HasOne
+    public function works(): HasOne
     {
-        return $this->hasOne(Work::class, 'foreign_key');
+        return $this->hasOne(Work::class);
     }
     public function fullName(){
         return $this->name. ' '.$this->middlename.' '.$this->lastname;

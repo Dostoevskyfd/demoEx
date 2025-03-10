@@ -25,6 +25,8 @@ class ReportController extends Controller
     }*/
 
     public function store(Request $request):RedirectResponse{
+        
+        
         $request->validate([
             'title'=>['required', 'string', 'max:255'],
             'path_img'=>'image|mimes:jpg,bmp,png|max:800',
@@ -53,4 +55,6 @@ class ReportController extends Controller
         return redirect()->back();
 
     }
+
+
 }
